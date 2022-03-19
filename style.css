@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
-
 :root {
   --light: #DEDEDE;
+  --hightlight: red;
   --shadow: 5px 5px 5px 0px rgba(0,0,0,0.25), -5px -5px 5px rgba(255, 255, 255, 0.25);
   --padding-button: 16px;
   --icon-size: 28px;
 }
+
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -13,15 +14,20 @@ body {
   font-family: 'Roboto', sans-serif;
   display: flex;
   justify-content: center;
+  font-weight: 100;
 }
 
-.wrapper {
+/* Player */
+.player {
   display: grid;
-  grid-template-rows: 94px 396px 50px 68px 59px;
+  grid-template-rows: 14vh 60vh 7vh 10vh auto;
   height: 100vh;
+  min-width: 320px;
   max-width: 375px;
+  overflow: hidden;
 }
 
+/* Header */
 .header {
     padding: 0 20px;
     display: flex;
@@ -37,6 +43,7 @@ body {
     cursor: pointer;
 }
 
+/* Cards */
 .cards {
     display: flex;
     justify-content: center;
@@ -48,12 +55,13 @@ body {
     text-align: center;
 }
 
-.card img {
+.cover {
     border-radius: 5px;
     box-shadow: var(--shadow);
 }
 
 .card h1 {
+    font-weight: 300;
     margin: 8px 12px
 }
 
@@ -61,31 +69,32 @@ body {
     margin: 0;
 }
 
-.progress-bar {
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.progress-bar img {
-    align-self: center;
-    border-radius: 5px;
+/* Progress bar */
+.progress-container {
+    margin: 0 auto;
+    width: 80%;
+    height: 0.5rem;
+    background: var(--light);
     box-shadow: var(--shadow);
+    border-radius: 10px;
 }
 
-.progress-bar p {
-    align-self: flex-end;
-    margin: 8px 24px 0 0;
-    font-size: 14px;
+.progress-container .progress {
+    height: 100%;
+    width: 20%;
+    background-color: var(--hightlight);
+    border-radius: 10px;
 }
 
-.buttons {
+/* Controls */
+.controls {
     display: flex;
     align-items: center;
     justify-content: center;
+    transform: translateY(-8px);
 }
 
-.buttons ion-icon {
+.controls ion-icon {
     margin: 0 8px;
     padding: var(--padding-button);
     font-size: var(--icon-size);
@@ -94,9 +103,28 @@ body {
     cursor: pointer;
 }
 
-.buttons ion-icon:nth-child(2), .buttons ion-icon:hover, .header ion-icon:nth-child(1):hover {
+.controls ion-icon:hover {
     color: white;
-    background-color: red;
+    background-color: var(--hightlight);
+}
+
+/* Song list */
+.song-list-container {
+    display: grid;
+    grid-template-rows: 9vh 91vh;
+    transform: translateY(-91vh);
+    transition: 1s all;
+    background-color: var(--light);
+}
+
+.song-list-container.playing {
+    transform: translateY(0);
+    transition: 3s all ease;
+}
+
+.song-list-container.playing .swipe-up {
+    transition: 3s all ease;
+    transform: rotate(0);
 }
 
 .swipe-up {
@@ -105,4 +133,47 @@ body {
     align-items: center;
     font-size: var(--icon-size);
     cursor: pointer;
+    transform: rotate(180deg);
+    transition: 1s all;
+}
+
+.song-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.song-list li {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 28px 12px
+}
+
+.song-list li a {
+    text-decoration: none;
+    color: black;
+    font-weight: 300;
+}
+
+.song-list li a.active {
+    font-weight: 400;
+}
+
+.song-list li ion-icon {
+    font-size: 10px;
+    padding: 4px;
+    border-radius: 100%;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.25), -2px -2px 2px rgba(255, 255, 255, 0.25);
+}
+
+.song-list li ion-icon.active {
+    background-color: var(--hightlight);
+    color: white;
+}
+
+
+.song-list li ion-icon:hover {
+    background-color: var(--hightlight);
+    color: var(--light);
 }
