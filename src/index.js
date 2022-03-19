@@ -1,6 +1,7 @@
 import { loadSongs, loadSong } from './modules/loadSongs.js'
 import { progressBar } from './modules/progressBar.js'
 import { loadControls } from './modules/controls.js'
+import { swipe } from './modules/swipe.js'
 
 // Capturar elementos del DOM para trabajar con JS
 let playButton = document.querySelector('.tooglePlay');
@@ -17,6 +18,9 @@ function startApp() {
 
     // Cargar controles
     loadControls();
+
+    // Habilitar swipe up
+    swipe();
 }
 
 startApp();

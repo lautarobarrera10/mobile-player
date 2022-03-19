@@ -9,34 +9,34 @@ const artist = document.querySelector('.artist');
 function loadSongs(){
     songList.map((song, index) => {
         // Crear li
-        const li = document.createElement('li');
 
+        const li = document.createElement('li');
         // Crear link
         const link = document.createElement('a');
-
         // Asignar valor al link
         link.textContent = song.title;
         link.href = '#';
 
         // Crear ícono
         const icon = document.createElement('ion-icon');
-
         // Agregar atributos al ícono
         icon.name = 'play-outline';
         icon.className = 'tooglePlay';
 
         // Escuchar clicks
-        link.addEventListener('click', () => loadSong(index, icon));
+        link.addEventListener('click', () => playingNow(index, icon));
         icon.addEventListener('click', () => loadSong(index, icon));
 
         // Agregar hijos a ul
         li.appendChild(link);
         li.appendChild(icon);
-  
-
         // Agregar li a ul
         songs.appendChild(li);
     });
+
+    function playingNow(index, icon){
+        loadSong(index, icon);
+    }
 };
 
 // Cargar canción seleccionada
