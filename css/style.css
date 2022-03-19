@@ -22,7 +22,8 @@ body {
   display: grid;
   grid-template-rows: 14vh 60vh 7vh 10vh auto;
   height: 100vh;
-  min-width: 320px;
+  min-width: 32px;
+  width: 90%;
   max-width: 375px;
   overflow: hidden;
 }
@@ -51,11 +52,12 @@ body {
 }
 
 .card {
-    margin: 0 12px;
+    /* margin: 0 12px; */
     text-align: center;
 }
 
 .cover {
+    width: 100%;
     border-radius: 5px;
     box-shadow: var(--shadow);
 }
@@ -117,10 +119,10 @@ body {
     cursor: pointer;
 }
 
-.controls ion-icon:hover {
+/* .controls ion-icon:hover {
     color: white;
     background-color: var(--hightlight);
-}
+} */
 
 /* Song list */
 .song-list-container {
