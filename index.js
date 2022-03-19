@@ -29,6 +29,9 @@ const cover = document.querySelector('.cover');
 const title = document.querySelector('.title');
 const artist = document.querySelector('.artist');
 
+const progressContainer = document.querySelector('.progress-container');
+let progress = document.querySelector('.progress');
+
 let playButton = document.querySelector('.tooglePlay');
 let nextButton = document.querySelector('.nextButton');
 let prevButton = document.querySelector('.prevButton');
@@ -37,15 +40,32 @@ const swipeContainer = document.querySelector('.song-list-container');
 const swipeButton = document.querySelector('.swipe-up');
 
 // Manipular el swipe up
-swipeButton.addEventListener('click', () => toggleSwipe());
+// swipeButton.addEventListener('click', () => toggleSwipe());
 
-function toggleSwipe(){
-    if (swipeContainer.className === 'song-list-container') {
-        swipeContainer.className += ' playing';
-    } else {
-        swipeContainer.className = 'song-list-container';
-    }
+// function toggleSwipe(){
+//     if (swipeContainer.className === 'song-list-container') {
+//         swipeContainer.className += ' playing';
+//     } else {
+//         swipeContainer.className = 'song-list-container';
+//     }
+// }
+
+// Barra de reproducción
+audio.addEventListener('timeupdate', () => {
+    let currentTimePorcentaje = audio.currentTime / audio.duration * 100;
+    progress.style.width = `${currentTimePorcentaje}%`
+})
+
+// Escuchar clicks en la barra de progreso
+progressContainer.addEventListener('click', updateProgress);
+
+// Cambiar barra de progreso
+function updateProgress(event) {
+    const totalWidth = this.offsetWidth;
+    const clickWidth = event.offsetX;
+    audio.currentTime = clickWidth / totalWidth * audio.duration;
 }
+
 
 // Botón play
 playButton.addEventListener('click', () => togglePlay(playButton))
@@ -124,10 +144,6 @@ function loadSong(indexSong, icon){
     // Preparar audio
     audio.src = './music/' + songList[indexSong].file;
 
-    // togglePlay(icon);
-    // icon.addEventListener('click', () => togglePlay(icon))
-
-    // Personalizar tarjeta
     cover.src = './images/' + songList[indexSong].cover;
     title.textContent = songList[indexSong].title;
     artist.textContent = songList[indexSong].artist;
@@ -140,5 +156,5 @@ function loadSong(indexSong, icon){
 loadSong(actualSong, playButton)
 loadSongs();
 
-
-let allPlaysButtons = document.querySelectorAll('.tooglePlay');
+// Pasar automaticamente a la proxima canción
+audio.addEventListener('ended', () => nextSong(actualSong))

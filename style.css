@@ -77,11 +77,12 @@ body {
     background: var(--light);
     box-shadow: var(--shadow);
     border-radius: 10px;
+    cursor: pointer;
 }
 
-.progress-container .progress {
+.progress {
+    width: 0%;
     height: 100%;
-    width: 20%;
     background-color: var(--hightlight);
     border-radius: 10px;
 }
