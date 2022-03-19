@@ -85,6 +85,19 @@ body {
     height: 100%;
     background-color: var(--hightlight);
     border-radius: 10px;
+    position: relative;
+}
+
+.progress::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    top: 50%;
+    right: -6px;
+    transform: translateY(-50%);
+    border-radius: 50px;
+    background-color: inherit;
 }
 
 /* Controls */
