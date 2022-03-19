@@ -102,6 +102,13 @@ body {
     background-color: inherit;
 }
 
+.timer {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 8px;
+    font-size: 0.8rem;
+}
+
 /* Controls */
 .controls {
     display: flex;
@@ -119,27 +126,22 @@ body {
     cursor: pointer;
 }
 
-/* .controls ion-icon:hover {
-    color: white;
-    background-color: var(--hightlight);
-} */
-
 /* Song list */
 .song-list-container {
     display: grid;
     grid-template-rows: 9vh 91vh;
     transform: translateY(-91vh);
-    transition: 1s all;
+    transition: 0.14s all;
     background-color: var(--light);
 }
 
 .song-list-container.playing {
     transform: translateY(0);
-    transition: 3s all ease;
+    transition: 0.14s all ease;
 }
 
 .song-list-container.playing .swipe-up {
-    transition: 3s all ease;
+    transition: 0.14s all ease;
     transform: rotate(0);
 }
 
