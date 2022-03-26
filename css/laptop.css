@@ -1,0 +1,38 @@
+/* Player */
+.player {
+    grid-template-columns: 1fr 1fr;
+    max-width: 1000px;
+}
+
+/* Header */
+.header {
+    grid-column: 1/2;
+}
+
+/* Cards */
+.cards {
+    grid-column: 1/2;
+}
+
+/* Progress bar */
+.progress-container {
+    grid-column: 1/2;
+}
+
+/* Controls */
+.controls {
+    grid-column: 1/2;
+}
+
+/* Song list */
+.song-list-container {
+    margin-top: 48px;
+    grid-column: 2/3;
+    grid-row: 1;
+    transform: none;
+}
+
+
+.swipe-up {
+    display: none;
+}

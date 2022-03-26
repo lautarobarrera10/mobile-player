@@ -1,31 +1,31 @@
 :root {
-  --light: #DEDEDE;
-  --hightlight: red;
-  --shadow: 5px 5px 5px 0px rgba(0,0,0,0.25), -5px -5px 5px rgba(255, 255, 255, 0.25);
-  --padding-button: 16px;
-  --icon-size: 28px;
+    --light: #DEDEDE;
+    --hightlight: red;
+    --shadow: 5px 5px 5px 0px rgba(0,0,0,0.25), -5px -5px 5px rgba(255, 255, 255, 0.25);
+    --padding-button: 16px;
+    --icon-size: 28px;
 }
 
 * { box-sizing: border-box; }
 
 body {
-  margin: 0;
-  background: var(--light);
-  font-family: 'Roboto', sans-serif;
-  display: flex;
-  justify-content: center;
-  font-weight: 100;
+    margin: 0;
+    background: var(--light);
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    font-weight: 100;
 }
 
 /* Player */
 .player {
-  display: grid;
-  grid-template-rows: 14vh 60vh 7vh 10vh auto;
-  height: 100vh;
-  min-width: 32px;
-  width: 90%;
-  max-width: 375px;
-  overflow: hidden;
+    display: grid;
+    grid-template-rows: 14vh 60vh 7vh 10vh auto;
+    height: 100vh;
+    min-width: 32px;
+    width: 90%;
+    max-width: 375px;
+    overflow: hidden;
 }
 
 /* Header */

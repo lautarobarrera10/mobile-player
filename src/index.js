@@ -85,6 +85,7 @@ let playButton = document.querySelector('.tooglePlay');
 
 // Reproducir canción seleccionada
 function playSong(index, icon) {
+    console.log(icon)
     if (index == actualSong) {
         if(audio.paused) {
             Array.prototype.forEach.call(playButtons, button => button.name = 'play-outline')
@@ -96,9 +97,9 @@ function playSong(index, icon) {
             Array.prototype.forEach.call(playButtons, button => button.name = 'play-outline')
         }
     } else {
-        loadSong(index)
-        audio.play()
         actualSong = index;
+        loadSong(actualSong)
+        audio.play()
         Array.prototype.forEach.call(playButtons, button => button.name = 'play-outline')
         icon.name = 'pause-outline'
         playButton.name = 'pause-outline'
@@ -178,7 +179,7 @@ function nextSong(actualSongIndex) {
     const iconInList = Array.prototype.find.call(playButtons, (button, index) => index - 1 == actualSong);
     playSong(actualSong, iconInList);
 }
-    
+
 // Cambiar a la canción anterior
 function prevSong(actualSongIndex) {
     actualSong = actualSongIndex - 1;
@@ -191,9 +192,16 @@ function prevSong(actualSongIndex) {
     playSong(actualSong, iconInList);
 }
 
+// Cambiar a la canción anterior
+function playActualSong(actualSongIndex) {
+    actualSong = actualSongIndex;
+
+    const iconInList = Array.prototype.find.call(playButtons, (button, index) => index - 1 == actualSong);
+    playSong(actualSong, iconInList);
+}
+
 // Escuchar botones
-const iconInList = Array.prototype.find.call(playButtons, (button, index) => index - 1 == actualSong);
-playButton.addEventListener('click', () => playSong(actualSong, iconInList))
+playButton.addEventListener('click', () => playActualSong(actualSong))
 nextButton.addEventListener('click', () => nextSong(actualSong));
 prevButton.addEventListener('click', () => prevSong(actualSong));
 
