@@ -74,9 +74,9 @@ const playButtons = document.querySelectorAll('.tooglePlay');
 // Cargar canción seleccionada
 function loadSong(indexSong, icon){
     // Preparar audio
-    audio.src = '../../music/' + songList[indexSong].file;
+    audio.src = './music/' + songList[indexSong].file;
 
-    cover.src = '../../images/' + songList[indexSong].cover;
+    cover.src = './images/' + songList[indexSong].cover;
     title.textContent = songList[indexSong].title;
     artist.textContent = songList[indexSong].artist;
 }
